@@ -84,6 +84,8 @@ headsep=3mm,
 }
 
 \newcommand{\gscore}[1]{
+  \phantomsection
+  \label{#1}
   \gregorioscore{\subfix{gabc/#1}}
 }
 
