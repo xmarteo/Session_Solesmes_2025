@@ -1,10 +1,11 @@
 name:In mandatis;
 office-part:Antiphona;
-mode:4;
+mode:4*;
 book:Antiphonale Romanum II, 2009, p. 490 & Antiphonale monasticum II, 2006, p. 52;
 transcriber:Robert Bruce;
 commentary:Ps 111, 1;
 nabc-lines:1;
 %%
 (c4) IN(g|vi) man(gh~|ta>)dá(h|vi-hh)tis(g|vihg) e(g>|vi>)ius(ef|peS) *() cu(g|vi)pit(f|vi) ni(e|ta)mis.(e|ta) (::)
-<eu>E(g) u(g) o(h) u(f) a(g) e.(e) </eu>(::)
+
+<i><c>Ps.</c></i> Be(g)á(fg)tus(g) vir,(g) qui(g) <i>ti</i>(f)<i>met</i>(g) <b>Dó</b>(h)mi(gr)num,(g) *(:) in(g) man(g)dá(g)tis(g) e(g)ius(g) <b>cu</b>(h fr)pit(f) <b>ni</b>(g er)mis.(e) (::)
