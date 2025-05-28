@@ -1,3 +1,35 @@
+%%%%%%%%%%%%%%% INDICES %%%%%%%%%%%%%%%
+
+\usepackage{imakeidx}
+
+%% This is deep magic required to make dotted_mode.ist work.
+%% Found in https://tex.stackexchange.com/questions/594568/how-to-integrate-a-tabular-environment-in-the-index
+\setlength{\columnseprule}{0.4pt}
+\newsavebox\ltmcbox
+\newlength\mysavecolroom
+%% This is added before automatically-inserted instances of \\ in longtable-based indices in order to ignore those
+\newcommand{\ignoreNL}[1]{} 
+%% This is a special macro to be used for explicit newlines
+%% inside indices where a tabular is used,
+%% which are indices where the mode is printed,
+%% to be used in the indexed value (i.e. the piece's title)
+\newcommand{\idxnewline}{\newline\null\hspace{4mm}}
+%% a simple newline\null can be added if it is at the end of the title.
+
+\indexsetup{level=\section*,toclevel=section,noclearpage,othercode=\footnotesize\thispagestyle{empty}}
+
+\makeindex[name=K,title=Kyriale, columns=2,columnseprule, options=-s dotted_thinmode.ist]
+\makeindex[name=I,title=Introïts, columns=2,columnseprule, options=-s dotted_thinmode.ist]
+\makeindex[name=G,title=Graduels, columns=2,columnseprule, options=-s dotted_thinmode.ist]
+\makeindex[name=AL,title=Alléluias, columns=2,columnseprule, options=-s dotted_thinmode.ist]
+\makeindex[name=S,title=Séquence, columns=1,columnseprule, options=-s dotted_thinmode.ist]
+\makeindex[name=O,title=Offertoires, columns=2,columnseprule, options=-s dotted_thinmode.ist]
+\makeindex[name=C,title=Communions, columns=2,columnseprule, options=-s dotted_thinmode.ist]
+\makeindex[name=H,title=Hymnes, columns=2,columnseprule, options=-s dotted_thinmode.ist]
+\makeindex[name=A,title=Antiennes, columns=2,columnseprule, options=-s dotted_mode.ist]
+\makeindex[name=R,title=Répons, columns=2,columnseprule, options=-s dotted_thinmode.ist]
+\makeindex[name=P,title=Psaumes, columns=2,columnseprule, options=-s dotted.ist]
+
 %KDP 6inx9in sans fonds perdus
 \usepackage[paperwidth=6in, paperheight=9in]{geometry}
 
@@ -12,6 +44,7 @@
 \usepackage{refcount}
 \usepackage{needspace}
 \usepackage{etoolbox}
+\usepackage{longtable}
 \usepackage{enumitem}
 
 \setdefaultlanguage[variant=french, frenchitemlabels=false]{french}
@@ -133,42 +166,48 @@ headsep=3mm,
 % on définit le système qui capture des headers pour générer des annotations
 % cette commande sera appelée pour définir des abréviations ou autres substitutions
 \newcommand{\resultat}{}
-\newcommand{\abbrev}[3]{
-  \IfSubStr{#1}{#2}{ \renewcommand{\resultat}{#3} }{}
+\newcommand{\indexnamebuffer}{}
+\newcommand{\abbrev}[4]{
+  \IfSubStr{#1}{#2}{ \renewcommand{\resultat}{#3} \renewcommand{\indexnamebuffer}{#4} }{}
 }
 \newcommand{\officepartannotation}[1]{
   \renewcommand{\resultat}{#1}
-  \abbrev{#1}{ntro}{Intr.}
-  \abbrev{#1}{re}{Resp.}
-  \abbrev{#1}{espo}{Resp.}
-  \abbrev{#1}{adu}{Gr.}
-  \abbrev{#1}{ll}{All.}
-  \abbrev{#1}{act}{Tract.}
-  \abbrev{#1}{equen}{Seq.}
-  \abbrev{#1}{ffert}{Off.}
-  \abbrev{#1}{ommun}{Co.}
-  \abbrev{#1}{an}{Ant.}
-  \abbrev{#1}{ntiph}{Ant.}
-  \abbrev{#1}{ntic}{Cant.}
-  \abbrev{#1}{ymn}{Hy.}
-  \abbrev{#1}{salm}{}
-  \abbrev{#1}{Toni Communes}{}
-  \abbrev{#1}{yrial}{}
+  \renewcommand{\indexnamebuffer}{}
+  \abbrev{#1}{ntro}{Intr.}{I}
+  \abbrev{#1}{re}{Resp.}{R}
+  \abbrev{#1}{espo}{Resp.}{R}
+  \abbrev{#1}{adu}{Gr.}{G}
+  \abbrev{#1}{ll}{All.}{AL}
+  \abbrev{#1}{act}{Tract.}{T}
+  \abbrev{#1}{equen}{Seq.}{S}
+  \abbrev{#1}{ffert}{Off.}{O}
+  \abbrev{#1}{ommun}{Co.}{C}
+  \abbrev{#1}{an}{Ant.}{A}
+  \abbrev{#1}{ntiph}{Ant.}{A}
+  \abbrev{#1}{ntic}{Cant.}{CT}
+  \abbrev{#1}{ymn}{Hy.}{H}
+  \abbrev{#1}{salm}{}{}
+  \abbrev{#1}{Toni Communes}{}{}
+  \abbrev{#1}{yrial}{}{K}
   \greannotation{\resultat}
 }
+
+\newcommand{\namebuffer}{}
+\newcommand{\namebuffercapture}[1]{
+  \renewcommand{\namebuffer}{#1}
+}
+
 \newcommand{\modeannotation}[1]{
-  \renewcommand{\resultat}{#1}
-  \abbrev{#1}{1}{ {\sc i} }
-  \abbrev{#1}{2}{ {\sc ii} }
-  \abbrev{#1}{3}{ {\sc iii} }
-  \abbrev{#1}{4}{ {\sc iv} }
-  \abbrev{#1}{5}{ {\sc v} }
-  \abbrev{#1}{6}{ {\sc vi} }
-  \abbrev{#1}{7}{ {\sc vii} }
-  \abbrev{#1}{8}{ {\sc viii} }
-  \greannotation{\resultat}
+  \greannotation{#1}
+  \ifblank{\namebuffer}{}{% if the name of the piece is not given as a gabc header, no indexation effort is made
+    \ifblank{\indexnamebuffer}{}{% if the officepartannotation macro has not parsed the office_part into an index name (I, R, G, etc.) no indexation effort is made
+      \index[\indexnamebuffer]{{\namebuffer}@#1 & \namebuffer}
+    }
+  }
 }
+
 \gresetheadercapture{office-part}{officepartannotation}{}
+\gresetheadercapture{name}{namebuffercapture}{}
 \gresetheadercapture{mode}{modeannotation}{string}
 
 %%%%%%%%%%%%%%% GRAPHICAL ELEMENTS %%%%%%%%%%%%%%%
@@ -241,6 +280,7 @@ headsep=3mm,
 
 \newcommand{\psalm}[2]{
 	\vspace{0.5\baselineskip}
+	\index[P]{#1}
 	\begin{paracol}{2}
 	\begin{itemize}[
 		label=\null, 
