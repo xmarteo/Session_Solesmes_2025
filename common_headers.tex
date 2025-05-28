@@ -186,6 +186,7 @@ headsep=3mm,
   \abbrev{#1}{ntiph}{Ant.}{A}
   \abbrev{#1}{ntic}{Cant.}{CT}
   \abbrev{#1}{ymn}{Hy.}{H}
+  \abbrev{#1}{Responsorium breve}{R.Br.}{R}
   \abbrev{#1}{salm}{}{}
   \abbrev{#1}{Toni Communes}{}{}
   \abbrev{#1}{yrial}{}{K}
@@ -357,6 +358,9 @@ headsep=3mm,
   \thispagestyle{empty}
   \addcontentsline{toc}{section}{#3}
 }
+
+\titleformat{\section}[block]{\large\filcenter\sc}{}{}{}
+%%%%%% This is actually used only for the titles of index sections
 
  \newcommand{\translation}[1]{
 	\emph{#1}
