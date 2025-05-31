@@ -3,6 +3,7 @@ office-part:Responsorium breve;
 nabc-lines:1;
 mode:6;
 %%
-(c4) DI(f|obta)ri(f|ta)gá(g|vi)tur,(f|ta) Dó(g|vi)mi(gh|pe)ne,(h|vi-) *(;) Ad(g|vihd) te(f|ta) o(gh|pe)rá(g|vi)ti(f|ta)o(g|vi) me(g|vi)a.(f|ta) (::)
+(c4) DI(f|obta)ri(f|ta)gá(g|vi)tur,(f|ta) Dó(g|vi)mi(gh|pe)ne,(h|vi-) <sp>*</sp>(;) Ad(g|vihd) te(f|ta) o(gh|pe)rá(g|vi)ti(f|ta)o(g|vi) me(g|vi)a.(f|ta) <i><c>bis</c></i>(::)
 <sp>V/</sp> Sic(f)ut(f|ta) in(f|ta)cén(g|ta)sum(f|vi) in(f|ta) con(f|ta)spéc(f|ta)tu(f|ta) tu(gh|peS)o.(h|vi-) (::)
-<sp>V/</sp> Gló(f|ta)ri(f|ta)a(f|ta) Pa(gh|pe)tri,(h|vi) et(h|vi) Fí(ixhi|////pe)li(h|ta)o,(h|ta-) (,) et(h|ta) Spi(h|ta)rí(h|vi)tu(g|ta)i(h|vi) Sanc(gf~|vi>)to.(f|tacb) (::)
+<sp>*</sp> Ad(g|vihd) te(f|ta) o(gh|pe)rá(g|vi)ti(f|ta)o(g|vi) me(g|vi)a.(f|ta) (::)
+<sp>V/</sp> Gló(f|ta)ri(f|ta)a(f|ta) Pa(gh|pe)tri,(h|vi) et(h|vi) Fí(ixhi|////pe)li(h|ta)o,(h|ta-) (,) et(h|ta) Spi(h|ta)rí(h|vi)tu(g|ta)i(h|vi) Sanc(gf~|vi>)to.(f|tacb) <sp>R/</sp>(::)

@@ -1,7 +1,8 @@
 name:Adimplebis me laetitia;
 office-part:Responsorium breve;
 mode:6;
+nabc-lines:1;
 %%
-(c4) AD(f|obta)im(f|ta)plé(g|vi)bis(f|ta) me(f|ta) læ(f|ta)tí(g|vi)ti(gh|pe)a.(h|vi-) *(;) Cum(g|vihd) vul(f|ta)tu(gh|pe) tu(gf|cl-)o,(g|vi) Dó(g|vi)mi(f|ta)ne.(f.|ta) (::)
-<sp>V/</sp> De(f|ta)lec(f|ta)ta(f|ta)ti(f|ta)ó(f|ta)nes(f|ta) in(f|ta) déx(f|ta)te(f|ta)ra(f|ta) tu(g|vi)a(f|ta) (,) us(f|ta)que(f|ta) in(f|ta) fi(gh|peS)nem.(h|vi-) (::)
-<sp>V/</sp> Gló(f|ta)ri(f|ta)a(f|ta) Pa(gh|pe)tri,(h|vi-) et(h|vi) Fí(ixhi|////pe)li(h|ta)o,(h|ta) (,) et(h|ta) Spi(h|ta)rí(h|vi)tu(g|ta)i(h|vi) Sanc(gf~|vi>)to.(f|tacb) (::)
+(c4) AD(f|obta)im(f|ta)plé(g|vi)bis(f|ta) me(f|ta) læ(f|ta)tí(g|vi)ti(gh|pe)a.(h|vi-) <sp>*</sp>(;) Cum(g|vihd) vul(f|ta)tu(gh|pe) tu(gf|cl-)o,(g|vi) Dó(g|vi)mi(f|ta)ne.(f.|ta) <i><c>bis</c></i>(::)
+<sp>V/</sp> De(f|ta)lec(f|ta)ta(f|ta)ti(f|ta)ó(f|ta)nes(f|ta) in(f|ta) déx(f|ta)te(f|ta)ra(f|ta) tu(g|vi)a(f|ta) (,) us(f|ta)que(f|ta) in(f|ta) fi(gh|peS)nem.(h|vi-) <sp>*</sp>(::)
+<sp>V/</sp> Gló(f|ta)ri(f|ta)a(f|ta) Pa(gh|pe)tri,(h|vi-) et(h|vi) Fí(ixhi|////pe)li(h|ta)o,(h|ta) (,) et(h|ta) Spi(h|ta)rí(h|vi)tu(g|ta)i(h|vi) Sanc(gf~|vi>)to.(f|tacb) <sp>R/</sp>(::)
